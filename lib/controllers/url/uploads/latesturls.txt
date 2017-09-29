@@ -1,0 +1,4 @@
+http://www.google.com
+http://www.msn.com
+http://www.yahoo.com
+http://khanati.azurewebsites.com

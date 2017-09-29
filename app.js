@@ -10,8 +10,6 @@ const ErrStrategies = require('./lib/errors/strategies');
 const defaultRouter = require('./lib/routers/default');
 const authenticatedRouter = require('./lib/routers/authenticated');
 const express = require('express');
-const queue = require('./lib/routes/queue');
-const versionValidation = require('./lib/validation/version');
 const validate = require('express-validation');
 const logger = require('./lib/utils/logger').Logger;
 const path = require('path');
@@ -25,7 +23,7 @@ app.set('view engine', 'jade');
 
 //app.use('/', require('./lib/routes/index')(defaultRouter()));
 app.use('/ready', require('./lib/routes/ready').ready((defaultRouter())));
-app.use('/', require('./lib/routes/example')(defaultRouter(), MongoDatabase));
+app.use('/', require('./lib/routes/url')(defaultRouter(), MongoDatabase));
 
 // error handling middleware
 appErrorHandler(app);
