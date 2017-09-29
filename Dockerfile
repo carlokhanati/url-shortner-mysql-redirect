@@ -1,8 +1,7 @@
 # node.js good practices:
 # https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md
 
-#FROM node:6.3.1
-FROM docker-registry-default.dapps.alephlb.com/openshift/nodejs-s2i-6:latest
+FROM node:6.3.1
 # Create app directory
 USER root
 
