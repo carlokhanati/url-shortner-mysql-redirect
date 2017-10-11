@@ -11,14 +11,14 @@ validate.options({
   allowUnknownQuery: false
 });
 
-function route(router, db) {
+function route(router) {
   router.get('/', _.partial(urlCtrl.getUrlCode));
   router.get('/upload', _.partial(urlCtrl.prepareUrlUpload));
   router.get('/file/latest', _.partial(urlCtrl.getLatestUrlUpload));
-  router.post('/upload', _.partial(urlCtrl.handleUrlUpload,db));
+  router.post('/upload', _.partial(urlCtrl.handleUrlUpload));
 
-  router.post('/new', _.partial(urlCtrl.createUrl, db));
-  router.get('/:short', _.partial(urlCtrl.getUrl, db));
+  router.post('/new', _.partial(urlCtrl.createUrl));
+  router.get('/:short', _.partial(urlCtrl.getUrl));
   
   return router;
 }

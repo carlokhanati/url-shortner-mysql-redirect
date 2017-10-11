@@ -1,6 +1,5 @@
 'use strict';
 
-const commonDB = require('../../db/common_db');
 const errorUtil = require('../../errors/utils');
 const shortid = require('shortid');
 const formidable = require('formidable');
@@ -36,7 +35,7 @@ function prepareUrlUpload(req, res) {
   res.render('upload', {host: local });
 }
 
-function handleUrlUpload(db, req, res, next) {
+function handleUrlUpload(req, res, next) {
   const local = req.get('host') + "/";
   const form = new formidable.IncomingForm();
   var connection;
@@ -58,7 +57,6 @@ function handleUrlUpload(db, req, res, next) {
 
     rl.on('line', (line) => {
       const urlCode = line;
-      const urlCol = db.use('url');
       const urlObj = {
         url: urlCode
       };
@@ -89,9 +87,8 @@ function handleUrlUpload(db, req, res, next) {
   });
 }
 
-function createUrl(db, req, res, next) {
+function createUrl(req, res, next) {
   const urlCode = req.body.url;
-  const urlCol = db.use('url');
   const urlObj = {
     url: urlCode
   };
@@ -122,9 +119,8 @@ function createUrl(db, req, res, next) {
   }).catch(errorUtil.propagateError(next));
 }
 
-function getUrl(db, req, res, next) {
+function getUrl(req, res, next) {
   const urlCode = req.params.short;
-  const urlCol = db.use('url');
   var connection;
   createConnection().then((conn)=> {
     connection = conn;
