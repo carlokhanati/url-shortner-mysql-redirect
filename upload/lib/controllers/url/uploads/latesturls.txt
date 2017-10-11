@@ -1,5 +1,0 @@
-http://www.google.com
-http://www.msn.com
-http://www.yahoo.com
-http://khanati.azurewebsites.com
-https://survey.kanari.co/#/survey/914?TDate=2017-10-05&Chan=001&Loc=002&Seg=XXX&Tran=XXX&CustRef=YYYYYYYY&Empl=ZZZZZZZZ&m_url=true
