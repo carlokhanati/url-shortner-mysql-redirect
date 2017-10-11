@@ -2,7 +2,6 @@
 
 const _ = require('underscore');
 const validate = require('express-validation');
-const urlValidation = require('../validation/url');
 const urlCtrl = require('../controllers/url/urlCtrl');
 
 validate.options({

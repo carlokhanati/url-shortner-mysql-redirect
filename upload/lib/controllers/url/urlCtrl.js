@@ -11,14 +11,18 @@ const validUrl = require('valid-url');
 const readline = require('readline');
 const fs = require('fs');
 
+const HOST = process.env.HOST;
+const USER = process.env.USER;
+const PASSWORD = process.env.PASSWORD;
+const DATABASE = process.env.DATABASE;
 const mysql      = require('promise-mysql');
 
 function createConnection() {
   return mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'admin',
-    database : 'url'
+    host     : HOST,
+    user     : USER,
+    password : PASSWORD,
+    database : DATABASE
   });
 }
 

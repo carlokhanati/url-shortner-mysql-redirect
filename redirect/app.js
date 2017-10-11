@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 
 dotenv.config({ silent: true });
 
-const MongoDatabase = require('./lib/db/mongo_database');
 const errorHandler = require('./lib/errors/errorHandler');
 const ErrStrategies = require('./lib/errors/strategies');
 const defaultRouter = require('./lib/routers/default');
@@ -23,7 +22,7 @@ app.set('view engine', 'jade');
 
 //app.use('/', require('./lib/routes/index')(defaultRouter()));
 app.use('/ready', require('./lib/routes/ready').ready((defaultRouter())));
-app.use('/', require('./lib/routes/url')(defaultRouter(), MongoDatabase));
+app.use('/', require('./lib/routes/url')(defaultRouter()));
 
 // error handling middleware
 appErrorHandler(app);
